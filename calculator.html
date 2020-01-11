@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+</head>
+<!-- <link rel="stylesheet" type="text/css" href="calculator.css"> -->
+<style type="text/css">
+	#calc{
+	margin-left: 200px;
+	background-color:lightgreen;
+	border-radius: 4px;
+	border-right: 10px;
+	margin-top: 59px;
+	height: 580px;
+	width: 340px;
+	outline: none;
+}
+#display{
+	width: 300px;
+	height: 50px;
+	margin-left: 20px;
+	margin-top: 34px;
+	border-bottom: none;
+	
+
+}
+#so{
+	background-color:lightgreen;
+}
+#show{
+	width: 300px;
+	height: 50px;
+	margin-left: 20px;
+	margin-top: -15px;
+	text-align: right;
+	border-top: none;
+
+}
+#calc button{
+	margin-left: 2.5px;
+	width: 18%;							
+	height: 37px;
+	border-radius: 10px;
+	margin-top: 35px;
+	
+}
+ #kj{
+   background-color:  orange;
+    color: white;
+}
+#up{
+	background-color: brown;
+	color: white;
+	width: 60px;
+	border-radius: 10px;
+	height: 38px;
+}
+#up:hover{
+	background-color: red;
+}
+#so{
+	border-radius: 10px;
+	color: white;
+}
+#go{
+	background-color: grey;
+	color: white;
+}
+#come{
+	background-color: grey;
+	color: white;
+}
+#wait{
+background-color: grey;
+color: white;
+}
+#class{
+	background-color: grey;
+	color: white;
+}
+#call{
+	background-color: grey;
+	color: white;
+}
+</style>
+<body>
+<div id="calc">
+	<div id ="so">
+<input type="text" name="" align="centre" id="display" disabled><br>
+<input type="text" name="" disabled id="show"></div>
+
+<button onclick="operator('log')" id="go">log</button>
+<button onclick="operator('Tan')"  id="come">Tan</button>
+<button onclick="operator('Sin')" id="wait">Sin</button>
+<button onclick="operator('Cos')" id="class">Cos</button>
+<button onclick="good('Sqrt')" id="call">Sqrt</button><br>
+<button onclick="xi('%')" id="call">%</button>
+ <button onclick="operator('Tanh')" id="call">Tanh</button>
+<button onclick="operator('Sinh')" id="call">Sinh</button>
+<button onclick="operator('Cosh')" id="call">Cosh</button>
+<button onclick="dom('Sqr')" id="call">Sqr</button><br>
+<button onclick="key('7')">7</button>
+<button onclick="key('8')">8</button>
+<button onclick="key('9')">9</button>
+<button onclick="key('^')">^</button>
+<button onclick="dk()" id="kj">DEl</button><br>
+<button onclick="key('4') ">4</button>
+<button onclick="key('5')">5</button>
+<button onclick="key('6')">6</button>
+<button onclick="key('/')">/</button>
+<button onclick="key('*')">*</button><br>
+<button onclick="key('1')">1</button>
+<button onclick="key('2')">2</button>
+<button onclick="key('3')">3</button>
+<button onclick="key('+')">+</button>
+<button onclick="key('-')">-</button><br>
+<button onclick="key('0')">0</button>
+<button onclick="key('.')">.</button>
+<button onclick="ff()" id="so">AC</button>
+<button value="equal" onclick="equal()">=</button>
+<input type="button" name="" value="ON" id="up" onclick="power()">
+</div>
+<script type="text/javascript">
+
+	function xi(){
+		show.value=display.value/100;
+		display.value=display.value+'%';
+	}
+
+	function dom(){
+		show.value=display.value*display.value;
+	}
+var operator;
+	function power(){
+		if (up.value=="ON"){
+			up.value= "OFF";
+		    show.value= 0;
+
+		}  
+
+		else if(up.value=="OFF"){	
+			up.value="ON";
+			display.value="";
+			show.value="";
+		}
+		if (up.value="OFF") {
+			display.value=""
+		}
+	}
+
+
+	function key(r){
+			display.value+=r;
+	}
+	var anything
+	function operator(a){
+		display.value="";
+		show.value=a;
+		anything=a;
+
+	}
+
+
+function equal(){
+	let h=display.value;
+	if (anything=='Sin') {
+		show.value=Math.sin(h*3.142/180);
+		display.value= 'Sin'+h;
+	}
+	else if (anything=='Tan') {
+		show.value=Math.tan(h*3.142/180);
+		display.value='Tan' +h;
+	}
+	else if (anything=='Cos') {
+		show.value=Math.cos(h*3.142/180);
+		display.value='Cos'+h;
+	}
+	else if(anything=='log'){
+		show.value=Math.log(h);
+		display.value='log'+h;
+
+	}
+	else if (anything=='Cosh') {
+			show.value=Math.cosh(h);
+			display.value='Cosh'+h;
+		}
+
+		else if (anything=='Sinh') {
+			show.value=Math.sinh(h);
+			display.value='Sinh'+h;
+		}
+
+		else if (anything=='Tanh') {
+			show.value=Math.tanh(h);
+			display.value='Tanh'+h;
+		}
+	else{
+		show.value=eval(display.value);
+	}
+	
+anything="";
+}
+	
+	
+
+	
+</script>
+</body>
+</html>
